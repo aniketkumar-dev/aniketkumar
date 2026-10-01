@@ -19,30 +19,40 @@ public:
        while(temp1 != NULL && temp2 != NULL){
         if(temp1->val > temp2->val){
             curr->next = temp2;
+            curr = curr->next;
             temp2 = temp2->next;
-            curr = curr->next;
-
-        }else if(temp1->val < temp2->val){
+        }else if ( temp1->val < temp2->val){
             curr->next = temp1;
-            temp1 = temp1->next;
             curr = curr->next;
-
-
+            temp1 = temp1->next;
         }else{
             curr->next = temp1;
+            curr = curr->next;
             temp1 = temp1->next;
-            curr = curr->next;
-            curr->next = temp2;
-            temp2 = temp2->next;
-            curr = curr->next;
-
         }
+
+        
        }
-       if(temp1 != NULL)
-    curr->next = temp1;
-else
-    curr->next = temp2;
-    
+
+       // kuch node bach jayege 
+       while(temp1 != NULL){
+        curr->next = temp1;
+        curr = curr->next;
+        temp1 = temp1->next;
+       }
+
+       while(temp2 != NULL){
+        curr->next = temp2;
+        curr = curr->next;
+        temp2 = temp2->next;
+       }
+
         return dummyNode->next;
+
+       
+
+
+        
+      
     }
 };
